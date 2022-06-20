@@ -1,0 +1,23 @@
+.sliderBody {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-right: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 5%;
+  border-radius: 8px;
+}
+.sliderImg {
+  height: 150px;
+  margin: 20px;
+  width: 150px;
+}
+.inputForm {
+  margin-left: 32%;
+}
+.inputDiv {
+  margin-bottom: 20px;
+}

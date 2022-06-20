@@ -1,0 +1,13 @@
+.singleImageDiv {
+  margin-top: 50px;
+  width: 90%px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.singleImage {
+  width: 250px;
+  height: 200px;
+  cursor: pointer;
+}
