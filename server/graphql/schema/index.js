@@ -18,6 +18,14 @@ module.exports = gql`
     images: [String!]!
     _id: ID!
   }
+
+  type Event{
+    _id:ID!
+    title:String!
+    image:String!
+  }
+
+
   input UpdateInput {
     file: Upload!
     fileId: ID!
@@ -32,6 +40,12 @@ module.exports = gql`
     sliderId: ID!
     delateIndex: [Int!]
   }
+
+  input EventInput{
+    title:String!
+    image:Upload!
+  }
+
   type Query {
     users: [User!]!
     user(userId: ID!): User!
@@ -43,5 +57,7 @@ module.exports = gql`
     updateFile(updateInput: UpdateInput): File!
     createSlider(files: [Upload!]!): SliderRes!
     updateSlider(updateSliderInput: UpdateSliderInput): SliderRes!
+
+    createEvent(eventInput:EventInput):Event
   }
 `;

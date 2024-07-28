@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleFile from "./components/SingleFile/SingleFile";
 import Home from "./components/Home/Home";
 import Slider from "./components/Slider/Slider";
+import AddEvent from "./components/Event/AddEvent/AddEvent";
 function App() {
   const uploadLink = createUploadLink({
     uri: "http://localhost:5000/graphql",
@@ -22,6 +23,7 @@ function App() {
             <Route path="/singleFile" element={<SingleFile />} />
             <Route path="/slider" element={<Slider />} />
             <Route exact path="/" element={<Home />} />
+            <Route path="addEvent" element={<AddEvent />} />
           </Routes>
         </Router>
       </ApolloProvider>

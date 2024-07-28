@@ -4,6 +4,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const User = require("../../model/user");
 const Slider = require("../../model/slider");
+const Event = require("../../model/event");
 
 module.exports = {
   Upload: GraphQLUpload,
@@ -199,6 +200,27 @@ module.exports = {
       } catch (err) {
         throw err;
       }
+    },
+    createEvent: async (parent, args) => {
+      const { image, title} = await args.eventInput;
+      const { createReadStream, filename, mimetype, encoding } = await image;
+      const stream = createReadStream();
+      const newFileName = uuidv4() + filename;
+      const pathName = path.join(
+        path.dirname(path.dirname(__dirname)),
+        `/public/images/${newFileName}`
+      );
+      await stream.pipe(fs.createWriteStream(pathName));
+      const newEvent = new Event({
+        title:title,
+        image: newFileName,
+      });
+      const result = await newEvent.save();
+      return {
+        title:result.title,
+        image: `http://localhost:5000/images/${newFileName}`,
+        _id: result._id,
+      };
     },
   },
 };

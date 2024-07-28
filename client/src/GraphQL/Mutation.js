@@ -43,3 +43,19 @@ export const UPDATE_SLIDER = gql`
     }
   }
 `;
+
+export const CREATE_EVENT = gql`
+  mutation createEvent(
+    $title: String!
+    $image: Upload!
+  ) {
+    createEvent(
+      eventInput: {
+        title: $title
+        image:$image
+      }
+    ) {
+      title
+    }
+  }
+`;
